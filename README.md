@@ -14,5 +14,5 @@ https://twitter.com/realDonaldTrump/status/tweet-id-here
 
 More to come...
 
-[img1]: images/img_01.png
+[img1]: images/img_02.png
 
