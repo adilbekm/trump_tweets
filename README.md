@@ -12,7 +12,11 @@ You can view any of the tweets from this this dataset at Twitter.com by replacin
 
 https://twitter.com/realDonaldTrump/status/tweet-id-here
 
+![Tweets by year][plt1]
+
+President Trump tweeted progressively more tweets while in Office. 
+
 More to come...
 
 [img1]: images/img_01.png
-
+[plt1]: images/plt_01.png
