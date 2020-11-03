@@ -19,8 +19,8 @@ fig, ax = plt.subplots()
 ax.bar(yrs, ts)
 
 ax.set_title('Number of Tweets by Year')
-ax.set_xlabel('Year')
-ax.set_ylabel('Tweets')
+#ax.set_xlabel('Year')
+#ax.set_ylabel('Tweets')
 
 fig.savefig('plt_01.png')
 
