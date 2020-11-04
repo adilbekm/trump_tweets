@@ -2,11 +2,9 @@
 
 #### All Tweets Sent by 45th President of the United States Donald J. Trump (2017-2020) #### 
 
-![Random tweets][img1]
+November 3, 2020
 
-October 25, 2020
-
-This is the collection of 22,788 tweets sent by Donald Trump between January 1, 2017 and October 25, 2020.
+This is the collection of 22,788 tweets sent by Donald Trump between January 1, 2017 and November 3, 2020.
 
 You can view any of the tweets from this this dataset at Twitter.com by replacing the ending of the link shown below with the id of the tweet you are interested in, and opening the link in your browser:
 
