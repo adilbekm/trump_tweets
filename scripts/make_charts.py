@@ -14,7 +14,9 @@ print('found {} total tweets'.format(total))
 
 f_name = 'plt_01.png'
 
-fig, ax = plt.subplots()
+fig = plt.figure() # creates current figure
+ax = plt.subplot() # creates current axes
+
 ax.set_title('Number of Tweets by Year')
 
 yrs = ['2017', '2018', '2019', '2020']
@@ -25,7 +27,7 @@ for yr in yrs:
 
 bars = ax.bar(yrs, ts)
 
-# annotate each bar with the count of tweets at the top of that bar
+# annotate top of each bar with count of tweets for the year that the bar represents
 for i, bar in enumerate(bars):
     bar_height = bar.get_height()
     tcount = '{:,}'.format(ts[i])
@@ -36,10 +38,16 @@ for i, bar in enumerate(bars):
         textcoords='offset pixels',
         horizontalalignment='center')
 
+# y-axis seems kind of short, so make it 5% taller 
+_, _, ymin, ymax = plt.axis()
+ax.set(ylim=(ymin, ymax * 1.05)) 
+
 #ax.set_xlabel('Year')
 #ax.set_ylabel('Tweets')
 
 fig.savefig('plt_01.png')
+plt.close() # closes current figure (not required but keeps the memory clean)
+
 print('created plot {}'.format(f_name))
 
 
