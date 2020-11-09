@@ -14,7 +14,7 @@ To do:
 
 
 
-total tweets: 22788
+total tweets: 23384
 
 keys: {'id', 'author_id', 'created_at', 'source', 'public_metrics', 'referenced_tweets', 'entities', 'geo', 'text'}
 
