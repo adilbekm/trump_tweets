@@ -15,11 +15,12 @@ yrs_array = df['created_yy'].unique()
 yrs = sorted(yrs_array) # [2017, 2018, ...]
 yrs = [str(yr) for yr in yrs]
 
+title = 'President Trump\'s Tweets\n'
+
 
 
 # 1: number of tweets by year
 
-title = 'Number of Tweets by Year'
 f_name = 'plt_01.png'
 
 fig = plt.figure() # creates current figure
@@ -58,6 +59,12 @@ ax.set_yticklabels(yticks)
 # show y-grid line
 ax.grid(axis='y', which='major', linestyle='--')
 
+# disable spines (lines across axis)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.set_ylabel('Number of Tweets')
+
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
 
@@ -67,7 +74,7 @@ print('saved plot {}'.format(f_name))
 
 # 2: number of tweets by re-tweet vs tweet
 
-title = 'Tweets vs. Retweets'
+#title = 'Tweets vs. Retweets'
 f_name = 'plt_02.png'
 
 fig = plt.figure() # creates current figure
@@ -108,6 +115,12 @@ ax.set_yticklabels(yticks)
 # show y-grid line
 ax.grid(axis='y', which='major', linestyle='--')
 
+# disable spines (lines across axis)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.set_ylabel('Number of Tweets')
+
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
 
@@ -117,7 +130,7 @@ print('saved plot {}'.format(f_name))
 
 # 3: number of tweets by month
 
-title = 'Tweets by Month'
+#title = 'Tweets by Month'
 f_name = 'plt_03.png'
 
 fig = plt.figure(figsize=(12, 5), tight_layout=True) # creates current figure
@@ -151,7 +164,7 @@ ax.grid(axis='y', which='major', linestyle='--')
 # add vertical lines to separate years
 xloc = [((n * 12) - 0.5) for n in range(1, len(yrs))]
 for n in xloc:
-    ax.axvline(x=n, ymin=0, ymax=1, linestyle='--', color=(1.0, 0.39, 0.28, 0.9))
+    ax.axvline(x=n, ymin=0, ymax=1, linestyle='--', color=(0.1, 0.2, 0.5, 0.5))
 
 # add years below x-axis,i.e. below months
 for i, y in enumerate(yrs):
@@ -162,11 +175,16 @@ xmin = -1
 xmax = len(ms)
 ax.set(xlim=(xmin, xmax)) 
 
+# disable spines (lines across axis)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.set_ylabel('Number of Tweets')
+
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
 
 print('saved plot {}'.format(f_name))
-
 
 
 
