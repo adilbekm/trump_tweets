@@ -26,7 +26,8 @@ f_name = 'plt_01.png'
 fig = plt.figure() # creates current figure
 ax = plt.subplot() # creates current axes
 
-ax.set_title(title)
+#ax.set_title(title)
+#ax.set_ylabel('Number of Tweets')
 
 ts = []
 for y in yrs:
@@ -63,8 +64,6 @@ ax.grid(axis='y', which='major', linestyle='--')
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 
-ax.set_ylabel('Number of Tweets')
-
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
 
@@ -80,7 +79,8 @@ f_name = 'plt_02.png'
 fig = plt.figure() # creates current figure
 ax = plt.subplot() # creates current axes
 
-ax.set_title(title)
+#ax.set_title(title)
+#ax.set_ylabel('Number of Tweets')
 
 ts_tweet = []
 ts_retwt = []
@@ -119,8 +119,6 @@ ax.grid(axis='y', which='major', linestyle='--')
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 
-ax.set_ylabel('Number of Tweets')
-
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
 
@@ -136,7 +134,8 @@ f_name = 'plt_03.png'
 fig = plt.figure(figsize=(12, 5), tight_layout=True) # creates current figure
 ax = plt.subplot() # creates current axes
 
-ax.set_title(title)
+#ax.set_title(title)
+#ax.set_ylabel('Number of Tweets')
 
 ts = []
 for y in yrs:
@@ -178,8 +177,6 @@ ax.set(xlim=(xmin, xmax))
 # disable spines (lines across axis)
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
-
-ax.set_ylabel('Number of Tweets')
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
