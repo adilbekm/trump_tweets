@@ -3,8 +3,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import datetime
 from load_tweets import df
+
 
 total = len(df)
 print('found {} total tweets'.format(total))
@@ -16,6 +17,20 @@ yrs = sorted(yrs_array) # [2017, 2018, ...]
 yrs = [str(yr) for yr in yrs]
 
 title = 'President Trump\'s Tweets\n'
+
+def cnt_wkdays(start, end):
+    '''Count number of weekdays in a period given by two dates, start and end,
+    where both dates are inclusive. Return results as a list of 7 numbers,
+    Monday through Sunday, where each number is the count of that weekday.
+    '''
+    res = [0, 0, 0, 0, 0, 0, 0]
+    delta = end - start
+    days = delta.days
+    for i in range(days + 1):
+        cur = start + datetime.timedelta(days=i)
+        wday = cur.weekday()
+        res[wday] = res[wday] + 1
+    return res
 
 
 
@@ -183,5 +198,64 @@ plt.close() # closes current figure (not required but keeps the memory clean)
 
 print('saved plot {}'.format(f_name))
 
+
+
+# 4: number of tweets by day of the week
+
+#title = 'Tweets by Day of Week'
+f_name = 'plt_04.png'
+
+fig = plt.figure(figsize=(8.32, 6.24), tight_layout=True) 
+ax_2017 = plt.subplot(2, 2, 1)
+ax_2018 = plt.subplot(2, 2, 2)
+ax_2019 = plt.subplot(2, 2, 3)
+ax_2020 = plt.subplot(2, 2, 4)
+axs = [ax_2017, ax_2018, ax_2019, ax_2020]
+
+# pre-calc number of weekdays
+# be careful with last day of 2020: should be day of last tweet
+wkdays2017 = cnt_wkdays(datetime.date(2017, 1, 1), datetime.date(2017, 12, 31))
+wkdays2018 = cnt_wkdays(datetime.date(2018, 1, 1), datetime.date(2018, 12, 31))
+wkdays2019 = cnt_wkdays(datetime.date(2019, 1, 1), datetime.date(2019, 12, 31))
+wkdays2020 = cnt_wkdays(datetime.date(2020, 1, 1), datetime.date(2020, 11, 7))
+wkdays = [wkdays2017, wkdays2018, wkdays2019, wkdays2020]
+
+# in python, wkdays are 0 for Mon and 6 for Sun
+wkds = [6, 0, 1, 2, 3, 4, 5] # Sun to Sat
+ts = {}
+for i, y in enumerate(yrs):
+    t = []
+    for d in wkds:
+        cnt_ts = len(df[(df.created_yy == int(y)) & (df.created_wd == d)])
+        cnt_wd = wkdays[i][d]
+        cnt = cnt_ts / cnt_wd
+        t.append(cnt)
+    ts[int(y)] = t
+
+for i, ax in enumerate(axs):
+    ax.bar(np.arange(7), height=ts[int(yrs[i])])
+
+# get largest ymax across all plots
+ymaxs = []
+for ax in axs:
+    _, ymax = ax.get_ylim()
+    ymaxs.append(ymax)
+max_ymax = max(ymaxs)
+
+wkds = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+for i, ax in enumerate(axs):
+    ax.set_ylim(ymax = max_ymax)
+    ax.grid(axis='y', which='major', linestyle='--')
+    ax.set_xticks(np.arange(len(wkds)))
+    ax.set_xticklabels(wkds)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.set_title(yrs[i], y=0.95)
+
+fig.savefig(f_name)
+plt.close() # closes current figure (not required but keeps the memory clean)
+
+print('saved plot {}'.format(f_name))
 
 
