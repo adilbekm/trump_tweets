@@ -21,6 +21,7 @@ df_cols = [
     'created_yy',
     'created_mm',
     'created_dd',
+    'created_hh',
     'created_wd', # weekday (monday=0, ..., sunday=6)
     'source', 
     'is_retweet', 
@@ -49,6 +50,7 @@ for i, t in enumerate(tweets):
     created_yy = created.year
     created_mm = created.month
     created_dd = created.day
+    created_hh = created.hour
     created_wd = created.weekday()
     #created_yy = created.year
     #created_mm = created.month
@@ -80,6 +82,7 @@ for i, t in enumerate(tweets):
         created_yy,
         created_mm,
         created_dd,
+        created_hh,
         created_wd,
         source,
         is_retweet,
@@ -101,6 +104,7 @@ df = df.astype({
     'created_yy': 'int64',
     'created_mm': 'int64',
     'created_dd': 'int64',
+    'created_hh': 'int64',
     'created_wd': 'int64',
     'source': 'string', 
     'is_retweet': 'boolean', 
