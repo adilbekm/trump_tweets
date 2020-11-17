@@ -11,8 +11,9 @@ total = len(df)
 print('found {} total tweets'.format(total))
 
 
-# twitter color (29, 161, 242) (0.11, 0.63, 0.95)
-tcolor = (0.11, 0.63, 0.95)
+# setup colors
+tcolor = (0.11, 0.63, 0.95) # twitter color RGB(29, 161, 242)
+my_red = (0.9, 0.17, 0.31, 0.9)
 
 # list of years
 yrs_array = df['created_yy'].unique()
@@ -26,9 +27,9 @@ def cnt_days(start, end):
     given by the two dates, start and end.
     '''
     delta = end - start
-    return delta.days
+    return delta.days + 1
 
-def cnt_wkdays(start, end):
+def cnt_wdays(start, end):
     '''Count and return number of weekdays in a closed period (including ends)
     given by the two dates, start and end. Return results as a list of 7 numbers,
     Monday through Sunday, where each number is the count of that weekday.
@@ -42,8 +43,39 @@ def cnt_wkdays(start, end):
         res[wday] = res[wday] + 1
     return res
 
+def days_in_month(year, month):
+    '''Given the year and month, return number of days in that month.
+    '''
+    if not isinstance(month, int) or month < 1 or month > 12:
+        raise Exception('month must be integer from 1 to 12')
+    if month == 12:
+        nyear = year + 1
+        nmonth = 1
+    else:
+        nyear = year
+        nmonth = month + 1
+    start = datetime.date(year, month, 1)
+    end = datetime.date(nyear, nmonth, 1)
+    delta = end - start
+    return delta.days
 
-# 1: number of tweets by year
+# precalc number of days; careful with 2020 - should be day of last tweet
+days2017 = cnt_days(datetime.date(2017, 1, 1), datetime.date(2017, 12, 31))
+days2018 = cnt_days(datetime.date(2018, 1, 1), datetime.date(2018, 12, 31))
+days2019 = cnt_days(datetime.date(2019, 1, 1), datetime.date(2019, 12, 31))
+days2020 = cnt_days(datetime.date(2020, 1, 1), datetime.date(2020, 11, 7))
+days_year = [days2017, days2018, days2019, days2020]
+
+# precalc number of days; careful with 2020 - should be day of last tweet
+wdays2017 = cnt_wdays(datetime.date(2017, 1, 1), datetime.date(2017, 12, 31))
+wdays2018 = cnt_wdays(datetime.date(2018, 1, 1), datetime.date(2018, 12, 31))
+wdays2019 = cnt_wdays(datetime.date(2019, 1, 1), datetime.date(2019, 12, 31))
+wdays2020 = cnt_wdays(datetime.date(2020, 1, 1), datetime.date(2020, 11, 7))
+wdays_year = [wdays2017, wdays2018, wdays2019, wdays2020]
+
+
+# --------------------------------------------------------------------------- 
+# Number of tweets by year
 
 f_name = 'plt_01.png'
 
@@ -85,7 +117,7 @@ yticks = ['{:,.0f}'.format(t) for t in yticks.tolist()]
 ax.set_yticklabels(yticks)
 
 # show y-grid line
-ax.grid(axis='y', which='major', linestyle='--')
+#ax.grid(axis='y', which='major', linestyle='--')
 
 # disable spines (lines across axis)
 ax.spines['top'].set_visible(False)
@@ -97,10 +129,11 @@ plt.close() # closes current figure (not required but keeps the memory clean)
 print('saved plot {}'.format(f_name))
 
 
-# 2: number of tweets by re-tweet vs tweet
+# --------------------------------------------------------------------------- 
+# Number of tweets by re-tweet vs tweet
 
-#title = 'Tweets vs. Retweets'
 f_name = 'plt_02.png'
+#title = 'Tweets vs. Retweets'
 
 fig = plt.figure() # creates current figure
 ax = plt.subplot() # creates current axes
@@ -147,12 +180,93 @@ plt.close() # closes current figure (not required but keeps the memory clean)
 print('saved plot {}'.format(f_name))
 
 
-# 3: number of tweets by month
+# --------------------------------------------------------------------------- 
+# Average tweets per day
 
-#title = 'Tweets by Month'
+#title = 'Average Tweets per Day'
 f_name = 'plt_03.png'
 
-fig = plt.figure(figsize=(12, 5), tight_layout=True) # creates current figure
+fig = plt.figure(figsize=(13, 5), tight_layout=True)
+ax = plt.subplot()
+
+tyears = []
+tmonths = []
+for i, y in enumerate(yrs):
+    y = int(y)
+    for m in range(1, 13):
+        tcount = len(df[(df.created_yy == y) & (df.created_mm == m)])
+        days = days_in_month(y, m)
+        t = tcount / days
+        tmonths.append(t)
+    tyear = len(df[df.created_yy == y])
+    t = tyear / days_year[i]
+    tyears.append(t)
+
+#print(tyrs)
+#print(tmonths)
+
+ms = len(yrs) * ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'] 
+ms_array = np.arange(len(ms))
+ax.bar(ms_array, height=tmonths, width=0.6, color=tcolor) 
+
+# set x-labels to months
+ax.set_xticks(ms_array)
+ax.set_xticklabels(ms)
+
+# format y-labels with a thousands separator and no decimals
+yticks = ax.get_yticks()
+ax.set_yticks(yticks) # needed for FixedLocator
+yticks = ['{:,.0f}'.format(t) for t in yticks.tolist()]
+ax.set_yticklabels(yticks)
+
+# show y-grid line
+ax.grid(axis='y', which='major', linestyle='--')
+
+# add vertical lines to separate years
+xloc = [((n * 12) - 0.5) for n in range(1, len(yrs))]
+for n in xloc:
+    ax.axvline(x=n, ymin=0, ymax=1, linestyle='--', color=(0.1, 0.2, 0.5, 0.5))
+
+# add horizontal lines for monthly averages
+xmin = np.array([ 0, 12, 24, 36]) - 0.3 # starting points (adjusted by -0.3)
+xmax = np.array([11, 23, 35, 46]) + 0.3 # ending points (adjusted by + 0.3)
+label = 'Average for the year'
+ax.hlines(tyears, xmin, xmax, color=my_red, label=label)
+
+# annotate horizontal lines (with the counts)
+for i, t in enumerate(tyears):
+    x = i * 12 + 0.5
+    y = t + 0.5 
+    ax.annotate('{:.1f}'.format(t), xy=(x, y), color=my_red, fontweight='bold')
+
+# add years below x-axis, i.e. below months
+for i, y in enumerate(yrs):
+    ax.text(x=(i * 12 + 5.5), y=-5, s=y, horizontalalignment='center')
+
+# x-axis limits by default are wasteful, so set my own
+xmin = -1
+xmax = len(ms)
+ax.set(xlim=(xmin, xmax)) 
+
+# disable spines (lines across axis)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.legend()
+
+fig.savefig(f_name)
+plt.close() # closes current figure (not required but keeps the memory clean)
+
+print('saved plot {}'.format(f_name))
+
+
+# --------------------------------------------------------------------------- 
+# Average tweets per month
+
+f_name = 'plt_04.png'
+#title = 'Tweets by Month'
+
+fig = plt.figure(figsize=(13, 5), tight_layout=True) # creates current figure
 ax = plt.subplot() # creates current axes
 
 #ax.set_title(title)
@@ -195,14 +309,13 @@ for n in xloc:
 # add horizontal lines for monthly averages
 xmin = np.array([ 0, 12, 24, 36]) - 0.3 # starting points (adjusted by -0.3)
 xmax = np.array([11, 23, 35, 46]) + 0.3 # ending points (adjusted by + 0.3)
-label = 'Average tweets per month'
-my_red = (0.9, 0.17, 0.31, 0.9)
+label = 'Average for the year'
 ax.hlines(ts_avgs, xmin, xmax, color=my_red, label=label)
 
 # annotate horizontal lines (with the counts)
 for i, t in enumerate(ts_avgs):
-    x = i * 12 + 1
-    y = t + 10
+    x = i * 12 + 0.5
+    y = t + 15
     ax.annotate('{:.1f}'.format(t), xy=(x, y), color=my_red, fontweight='bold')
 
 # add years below x-axis, i.e. below months
@@ -213,6 +326,11 @@ for i, y in enumerate(yrs):
 xmin = -1
 xmax = len(ms)
 ax.set(xlim=(xmin, xmax)) 
+
+# ymax defaults at 1399.65; if so, set it to 1400 even
+_, ymax = ax.get_ylim()
+if ymax < 1400:
+    ax.set_ylim(ymax = 1400)
 
 # disable spines (lines across axis)
 ax.spines['top'].set_visible(False)
@@ -226,10 +344,87 @@ plt.close() # closes current figure (not required but keeps the memory clean)
 print('saved plot {}'.format(f_name))
 
 
-# 4: number of tweets by day of the week
+# --------------------------------------------------------------------------- 
+# Average tweets per month with likes 
+
+f_name = 'plt_05.png'
+#title = 'Average Tweets per Day with Likes'
+
+fig = plt.figure(figsize=(13, 5), tight_layout=True)
+ax = plt.subplot() # first axes for tweets
+ax2 = ax.twinx() # second axes for like (sharing the same y-axis)
+
+likes = []
+for y in yrs:
+    y = int(y)
+    for m in range(1, 13):
+        ts2 = len(df[(df.created_yy == y) & (df.created_mm == m) & (df.like_ct > 0)])
+        ls = df[(df.created_yy == y) & (df.created_mm == m) & (df.like_ct > 0)].like_ct.sum()
+        if ts2 == 0:
+            avg_like = np.nan 
+        else:
+            avg_like = ls / ts2
+        likes.append(avg_like)
+
+# set November 2020 likes to np.nan (incomplete month)
+likes[-2] = np.nan
+
+#print(likes)
+
+#ms = len(yrs) * ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'] # complete by copying
+#ms_array = np.arange(len(ms))
+
+ax.bar(ms_array, height=ts, width=0.6, color=tcolor) 
+ax2.plot(ms_array, likes, linewidth=2, color=my_red, marker='o')
+
+# set x-labels to months
+ax.set_xticks(ms_array)
+ax.set_xticklabels(ms)
+
+# x-axis limits by default are wasteful, so set my own
+xmin = -1
+xmax = len(ms)
+ax.set(xlim=(xmin, xmax)) 
+
+# add vertical lines to separate years
+xloc = [((n * 12) - 0.5) for n in range(1, len(yrs))]
+for n in xloc:
+    ax.axvline(x=n, ymin=0, ymax=1, linestyle='--', color=(0.1, 0.2, 0.5, 0.5))
+
+# add years below x-axis, i.e. below months
+for i, y in enumerate(yrs):
+    ax.text(x=(i * 12 + 5.5), y=-150, s=y, horizontalalignment='center')
+
+# format y-labels with a thousands separator and no decimals
+yticks = ax.get_yticks()
+ax.set_yticks(yticks) # needed for FixedLocator
+yticks = ['{:,.0f}'.format(t) for t in yticks.tolist()]
+ax.set_yticklabels(yticks, color=tcolor)
+
+# set and format secondary y-labels manually, with K for thousands
+yticks = [20000, 40000, 60000, 80000, 100000, 120000]
+ax2.set_yticks(yticks)
+yticks = ['{:.0f}K'.format(t / 1000) for t in yticks]
+ax2.set_yticklabels(yticks, color=my_red)
+
+# y-axis min limits is not zero, so set to zero
+ax2.set_ylim(ymin=0)
+
+# disable top spine (lines across x-axis)
+ax.spines['top'].set_visible(False)
+ax2.spines['top'].set_visible(False)
+
+fig.savefig(f_name)
+plt.close() # closes current figure (not required but keeps the memory clean)
+
+print('saved plot {}'.format(f_name))
+
+
+# --------------------------------------------------------------------------- 
+# Tweets by day of the week
 
 #title = 'Tweets by Day of Week'
-f_name = 'plt_04.png'
+f_name = 'plt_06.png'
 
 fig = plt.figure(figsize=(8.32, 6.24), tight_layout=True) 
 ax_2017 = plt.subplot(2, 2, 1)
@@ -238,22 +433,14 @@ ax_2019 = plt.subplot(2, 2, 3)
 ax_2020 = plt.subplot(2, 2, 4)
 axs = [ax_2017, ax_2018, ax_2019, ax_2020]
 
-# pre-calc number of weekdays
-# be careful with last day of 2020: should be day of last tweet
-wkdays2017 = cnt_wkdays(datetime.date(2017, 1, 1), datetime.date(2017, 12, 31))
-wkdays2018 = cnt_wkdays(datetime.date(2018, 1, 1), datetime.date(2018, 12, 31))
-wkdays2019 = cnt_wkdays(datetime.date(2019, 1, 1), datetime.date(2019, 12, 31))
-wkdays2020 = cnt_wkdays(datetime.date(2020, 1, 1), datetime.date(2020, 11, 7))
-wkdays = [wkdays2017, wkdays2018, wkdays2019, wkdays2020]
-
-# in python, wkdays are 0 for Mon and 6 for Sun
+# in python, weekdays are 0 for Mon and 6 for Sun
 wkds = [6, 0, 1, 2, 3, 4, 5] # Sun to Sat
 ts = {}
 for i, y in enumerate(yrs):
     t = []
     for d in wkds:
         cnt_ts = len(df[(df.created_yy == int(y)) & (df.created_wd == d)])
-        cnt_wd = wkdays[i][d]
+        cnt_wd = wdays_year[i][d]
         cnt = cnt_ts / cnt_wd
         t.append(cnt)
     ts[int(y)] = t
@@ -285,11 +472,11 @@ plt.close() # closes current figure (not required but keeps the memory clean)
 print('saved plot {}'.format(f_name))
 
 
-
-# 5: number of tweets by time of day
+# --------------------------------------------------------------------------- 
+# Tweets by time of day
 
 #title = 'Tweets by Time of Day'
-f_name = 'plt_05.png'
+f_name = 'plt_07.png'
 
 fig = plt.figure(figsize=(8.32, 6.24), tight_layout=True)
 #ax = plt.subplot()
@@ -299,21 +486,13 @@ ax2019 = plt.subplot(2, 2, 3)
 ax2020 = plt.subplot(2, 2, 4)
 axs = [ax2017, ax2018, ax2019, ax2020]
 
-# precalc number of days
-# be careful with last day of 2020: should be day of last tweet
-days2017 = cnt_days(datetime.date(2017, 1, 1), datetime.date(2017, 12, 31))
-days2018 = cnt_days(datetime.date(2018, 1, 1), datetime.date(2018, 12, 31))
-days2019 = cnt_days(datetime.date(2019, 1, 1), datetime.date(2019, 12, 31))
-days2020 = cnt_days(datetime.date(2020, 1, 1), datetime.date(2020, 11, 7))
-days = [days2017, days2018, days2019, days2020]
-
 ts = []
 hs = list(range(24))
 for i, y in enumerate(yrs):
     tweets = [0] * 24
     for h in hs:
         cnt = len(df[(df.created_yy == int(y)) & (df.created_hh == h)])
-        cnt_avg = cnt / days[i]
+        cnt_avg = cnt / days_year[i]
         tweets[h] = cnt_avg
     ts.append(tweets)
 
@@ -341,14 +520,5 @@ plt.close()
 
 print('saved plot {}'.format(f_name))
 
-
-
-# 6: Average tweets per day, by month and year
-
-#title = 'Average Tweets per Day'
-f_name = 'plt_06.png'
-
-fig = plt.figure() # need figsize and tight_layout later
-ax = plt.subplot()
 
 
