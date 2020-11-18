@@ -13,7 +13,8 @@ To do:
 
 content:
 
-- explore if trump is writing his own tweets
+- does trump write his own tweets
+- sentiment analysis of tweets, over time
 - frequency of certain words like 'Mexico will pay'
 
 
