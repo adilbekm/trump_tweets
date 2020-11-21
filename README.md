@@ -24,13 +24,17 @@ President Trump has sent a total of 23,384 tweets between January 1, 2017 and No
 
 ![Tweets by time of day by tweet vs retweet][plt10]
 
+![Top 10 most active days][plt11]
+
+![Days without any tweets][plt12]
+
 You can view any of the tweets from this this dataset at Twitter.com by replacing the ending of the link shown below with the id of the tweet you are interested in, and opening the link in your browser:
 
 https://twitter.com/realDonaldTrump/status/tweet-id-here
 
 More to come...
 
-Last updated: November 15, 2020
+Last updated: November 20, 2020
 
 [plt1]: images/plt_01.png
 [plt2]: images/plt_02.png
@@ -42,4 +46,6 @@ Last updated: November 15, 2020
 [plt8]: images/plt_08.png
 [plt9]: images/plt_09.png
 [plt10]: images/plt_10.png
+[plt11]: images/plt_11.png
+[plt12]: images/plt_12.png
 

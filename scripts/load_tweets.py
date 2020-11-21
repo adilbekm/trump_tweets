@@ -22,6 +22,7 @@ df_cols = [
     'created_mm',
     'created_dd',
     'created_hh',
+    'created_wk', # week number (1 - 53)
     'created_wd', # weekday (monday=0, ..., sunday=6)
     'source', 
     'is_retweet', 
@@ -36,7 +37,6 @@ df_cols = [
     'text',
     'text_len']
 
-# create empty dataframe 
 df = pd.DataFrame(index=np.arange(tweet_ct), columns=df_cols)
 
 for i, t in enumerate(tweets):
@@ -51,10 +51,8 @@ for i, t in enumerate(tweets):
     created_mm = created.month
     created_dd = created.day
     created_hh = created.hour
+    created_wk = created.isocalendar()[1]
     created_wd = created.weekday()
-    #created_yy = created.year
-    #created_mm = created.month
-    #created_hh = created.hour
     source = t['source']
     # trump retweets at most 2 tweets, historically
     rt_id = rt_type = None
@@ -75,7 +73,7 @@ for i, t in enumerate(tweets):
     text = t['text'] # need to replace \n?
     text_len = len(text)
 
-    # load into dataframe
+    # load to dataframe
     df.iloc[i] = [
         twt_id,
         created,
@@ -83,6 +81,7 @@ for i, t in enumerate(tweets):
         created_mm,
         created_dd,
         created_hh,
+        created_wk,
         created_wd,
         source,
         is_retweet,
@@ -105,6 +104,7 @@ df = df.astype({
     'created_mm': 'int64',
     'created_dd': 'int64',
     'created_hh': 'int64',
+    'created_wk': 'int64',
     'created_wd': 'int64',
     'source': 'string', 
     'is_retweet': 'boolean', 
