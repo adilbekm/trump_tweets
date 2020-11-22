@@ -1,8 +1,8 @@
 # All the President's Tweets #
 
-#### All Tweets Sent by 45th President of the United States Donald Trump (2017-2020) #### 
+President Trump has sent 23,787 tweets since taking office in 2017. I downloaded all them from Twitter to analyze his tweeting patterns, and here is what I found in a few graphs. 
 
-President Trump has sent a total of 23,384 tweets between January 1, 2017 and November 7, 2020 at noon. 
+Donald Trump had been a prolific tweeter even before he was President, sending out thousands of tweets per year. When he was elected, there was an expectation that he would somewhat mold into the job and become at least a little like all the other presidents that came before him, and this meant tweeting less. But today with nearly all of his presidency behind him, that expectation turned out to be short-lived. 
 
 ![Tweets by year][plt1]
 
@@ -28,6 +28,8 @@ President Trump has sent a total of 23,384 tweets between January 1, 2017 and No
 
 ![Days without any tweets][plt12]
 
+![All tweets day by day][plt13]
+
 You can view any of the tweets from this this dataset at Twitter.com by replacing the ending of the link shown below with the id of the tweet you are interested in, and opening the link in your browser:
 
 https://twitter.com/realDonaldTrump/status/tweet-id-here
@@ -48,4 +50,5 @@ Last updated: November 20, 2020
 [plt10]: images/plt_10.png
 [plt11]: images/plt_11.png
 [plt12]: images/plt_12.png
+[plt13]: images/plt_13.png
 

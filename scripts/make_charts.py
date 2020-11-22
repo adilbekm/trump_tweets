@@ -80,7 +80,6 @@ wdays2020 = cnt_wdays(datetime.date(2020, 1, 1), dataset_end)
 wdays_year = [wdays2017, wdays2018, wdays2019, wdays2020]
 
 
-
 # --------------------------------------------------------------------------- 
 # Number of tweets by year
 
@@ -127,7 +126,7 @@ ax.set_yticklabels(yticks)
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -180,7 +179,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend(frameon=False)
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -265,7 +264,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend(frameon=False, loc=2, bbox_to_anchor=(0, 1.02))
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -352,7 +351,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend(frameon=False)
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -445,7 +444,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend()
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -534,7 +533,7 @@ ax2.spines['top'].set_visible(False)
 ax.legend(frameon=False, bbox_to_anchor=(0, 0.95), loc=2)
 ax2.legend(frameon=False)
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -594,7 +593,7 @@ for i, ax in enumerate(axs):
     ax.spines['right'].set_visible(False)
     ax.grid(axis='y', which='major', linestyle='--')
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -663,7 +662,7 @@ for i, ax in enumerate(axs):
 
 ax2017.legend(frameon=False, loc=2, bbox_to_anchor=(0, 1.02))
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -719,7 +718,7 @@ for i, ax in enumerate(axs):
     ax.spines['right'].set_visible(False)
     ax.grid(axis='y', which='major', linestyle='--')
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close()
@@ -786,7 +785,7 @@ for i, ax in enumerate(axs):
 #ax2017.legend(frameon=False, loc=2, bbox_to_anchor=(0, 0.95))
 ax2017.legend(loc=2)
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close()
@@ -883,7 +882,7 @@ ax2.spines['right'].set_visible(False)
 
 fig.legend()
 
-fig.text(0.01, 0.01, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # close current figure - not required but keeps the memory clean
@@ -911,7 +910,7 @@ for i, z in enumerate(zeros):
     x += xoffset
     fig.text(x, 0.5, s, ha='center')
 
-fig.text(0.01, 0.03, fineprint, fontsize='small', fontstyle='italic', alpha=0.5)
+fig.text(0.99, 0.03, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # close current figure - not required but keeps the memory clean
@@ -919,4 +918,110 @@ plt.close() # close current figure - not required but keeps the memory clean
 print('saved plot {}'.format(f_name))
 
 
+# ---------------------------------------------------------------------------
+# Heatmap of daily tweets
+
+f_name = 'plt_13.png'
+
+fig = plt.figure(
+        figsize=(15, 10), 
+        tight_layout={'rect': (0, 0.02, 1, 1), 'h_pad': 0.7})
+ax1 = plt.subplot(4, 1, 1)
+ax2 = plt.subplot(4, 1, 2)
+ax3 = plt.subplot(4, 1, 3)
+ax4 = plt.subplot(4, 1, 4)
+axs = [ax1, ax2, ax3, ax4]
+
+title = main_title + ': Daily Count'
+fig.suptitle(title, fontsize='x-large')
+
+# number of weeks in 2017-2020: 52 + 52 + 52 + 53 = 209
+# but will use 52 for all for years so that graphs align
+# so go with np.array of shape (208, 7)
+# i will use iso calendar, so week begins with monday
+
+weeks = 208
+days = 7
+t = np.zeros((weeks, days))
+# start on 2017-01-02 because 2017-01-01 is week 52 of 2016
+c = dataset_start + datetime.timedelta(days=1)
+
+for wk in range(weeks):
+    for wd in range(days):
+        y = c.year
+        m = c.month
+        d = c.day
+        tc = len(df[(df.created_yy == y) & (df.created_mm == m) & (df.created_dd == d)])
+        t[wk][wd] = tc
+        c += datetime.timedelta(days=1)
+
+# max value to use in colormap
+tmean = t.mean()
+tstd = t.std()
+tmax = int(tmean + (2 * tstd)) # 2 stds from mean
+
+# split the array by years:
+t1 = t[0:52]
+t2 = t[52:104]
+t3 = t[104:156]
+t4 = t[156:]
+
+# trasponse (for imshow)
+t1 = np.transpose(t1)
+t2 = np.transpose(t2)
+t3 = np.transpose(t3)
+t4 = np.transpose(t4)
+
+ts = [t1, t2, t3, t4]
+
+for i, ax in enumerate(axs):
+    ax.imshow(ts[i], cmap='Reds', vmax=tmax)
+    ax.set_yticks(np.arange(7))
+    ax.set_yticklabels(['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'])
+    ax.set_ylabel(yrs[i], fontsize='large')
+    ax.set_xticks([0, 9, 19, 29, 39, 49])
+    ax.set_xticklabels([1, 10, 20, 30, 40, 50])
+    ax.tick_params(
+            axis='x', 
+            top=True, 
+            bottom=False, 
+            labeltop=True, 
+            labelbottom=False)
+
+# show tweet counts
+for i, ax in enumerate(axs):
+    for n in range(7):
+        for m in range(52):
+            cnt = str(int(ts[i][n][m]))
+            ax.text(m, n, cnt, ha='center', va='center', fontsize='small', color='w', alpha=0.8)
+
+fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+
+fig.savefig(f_name)
+plt.close()
+
+print('saved plot {}'.format(f_name))
+
+
+# --------------------------------------------------------------------------- 
+# Banner image, based on previous plot's data for 2019 (t3)
+
+f_name = 'plt_14.png'
+
+fig = plt.figure(figsize=(35, 5), tight_layout=True)
+ax = plt.subplot()
+
+ax.imshow(t3, cmap='Reds', vmax=tmax)
+ax.set_axis_off()
+
+# show tweet counts
+for n in range(7):
+    for m in range(52):
+        cnt = str(int(t3[n][m]))
+        ax.text(m, n, cnt, ha='center', va='center', fontsize='large', color='w', alpha=0.8)
+
+fig.savefig(f_name)
+plt.close()
+
+print('saved plot {}'.format(f_name))
 
