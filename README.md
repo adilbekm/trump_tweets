@@ -4,26 +4,28 @@ November 22, 2020
 
 President Trump has sent 23,787 tweets since taking office in 2017. I downloaded all them from Twitter to analyze his tweeting patterns, and here is what I found in a few graphs. 
 
-Donald Trump was a prolific tweeter even before he was President, sending thousands of tweets per year. When he was elected in 2016, there was an expectation that he would maybe mold into the job and likely change some of his habits, including his tweeting habit. You may recall conversations about becoming more "presidential". That expectation turned out to be short-lived because not only President Trump continued to tweet on a daily basis, he has increased the number of tweets he sent from one year to the next. 
+Donald Trump was a prolific tweeter even before he became President, sending thousands of tweets per year. When he was elected in 2016, there was an expectation that he might mold into the job and change some of his habits, including his tweeting habit. But that expectation turned out to be short-lived because not only President Trump continued to tweet on a daily basis, he has increased the number of tweets he has sent from one year to the next:
 
 ![Tweets by year][plt1]
 
-If you are someone like me, who mostly "consumes" other people's tweets rather than creates them, then it's worth explaining that tweets can be of two types - own tweets or retweets. An own tweet is when you send something that is your own statement in 140 characters or less, and a retweet is when you take someone else's tweet and send that out, optionally including your comment in 140 characters. So, here is a look at President Trump's tweets broken down by the two types of tweets. 
+If you don't use Twitter very often, it's worth explaining that tweets can be of two types - own tweets or retweets. An own tweet is when you send something that is your own statement in 140 characters or less, and a retweet is when you take someone else's tweet and send that out, optionally including your comment in 140 characters. So, here is a look at President Trump's tweets broken down by these two types: 
 
 ![Tweets vs retweets][plt2]
 
-There are a couple of patterns in this graph that are worth noting. First, even with the retweets separated out, it is clear that President Trump has increased his tweeting frequency with his time in the White House. In other words, his tweeting activity has grown regardless of the type of tweeting. Second, his retweeting rate has increased even more drastically than the rate of his own tweets, bringing the ratio of own tweets to retweets to almost half-and-half by 2020. It is almost like he has realized the value of retweets around the middle of his Presidency, and then turned them into a routine. 
+This graph reveals a couple of interesting patterns. First, even with the retweets separated out, President Trump has still increased his tweeting frequency with his time in the White House. In other words, his tweeting activity has grown regardless of the type of tweeting. Second, his retweeting rate has increased even more drastically than the rate of his own tweets, bringing the ratio of own tweets to retweets to almost half-and-half by 2020. It is almost like he has realized the value of retweets around the middle of his Presidency, and then turned them into a routine. 
 
 
-So 23,787 tweets over the last 4 years and still counting certainly feels like a big number, but to better understand what this kind of volume of tweets really means it is useful to break up the year into months and look at the tweets on a month-by-month basis.
+23,787 tweets over the past 4 years and counting certainly feels like a big number, but to better understand what this kind of volume of tweets really means it is useful to break up the year into months and look at the tweets on a month-by-month basis:
 
 ![Tweets per month][plt4]
 
 ![Tweets per month by tweet vs retweet][plt5]
 
-This graph reveals a few patterns. We now see that the increase in the number of tweets happened at a relatively calm rate in the first two years of his Presidency, then increasing more rapidly over the last two years. What happened? 2019 was the year of his impeachment trial and 2020 has been dominated by the pandemic, economy, and the elections, but one could argue that Trump's entire term was extraordinarily eventful with things like the Mueller investigation, the trade war with China, and foreign policy shifts.
+We now see that in the first two years of his Presidency, the increase in the number of tweets happened at a relatively calm rate, going from 208 tweets per month in the year 2017 to about 285 tweets per month in the year 2018. But things started to change in a big way in 2019 with his tweeting rate inceasing to 610 tweets per month, and increasing further to nearly 1,000 tweets per month in 2020. What happened? 2019 was the year of his impeachment trial and 2020 has been dominated by the pandemic, economy, and the elections, but one could argue that Trump's entire term was extraordinarily eventful with things like the Mueller investigation, the trade war with China, and foreign policy shifts.
 
-How about likes? Here is basically the previous graph but overlayed with likes using another y-axis shown on the right.
+It is also interesting to see a seasonal pattern in President Trump's tweets. It appears that his tweeting activity subsides slightly in the colder months of the year and picks up in the summer and fall.
+
+What about likes? Here is basically the previous graph but overlayed with likes using a secondary y-axis on the right:
 
 ![Tweets per month with likes][plt6]
 
