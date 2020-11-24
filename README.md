@@ -1,6 +1,6 @@
 # All the President's Tweets #
 
-November 22, 2020
+November 23, 2020
 
 President Trump has sent 23,842 tweets since taking office in 2017. I downloaded all them from Twitter to analyze his tweeting patterns, and here is what I found in a few graphs. 
 
@@ -8,53 +8,53 @@ Donald Trump had been a prolific tweeter even before he became President, sendin
 
 ![Tweets by year][plt1]
 
-If you don't use Twitter very often, it's worth mentioning that tweets can be of two types - own tweets or retweets. An own tweet is when you type something in 140 characters or less and send it out, and a retweet is when you take someone else's tweet and send it out, optionally including your comment in 140 characters. So, here is a look at President Trump's tweets broken down by these two types: 
+If you don't use Twitter very often, it's worth mentioning that tweets can be of two types - own tweets or retweets. An own tweet is when you type something in 140 characters or less and send it out, and a retweet is when you take someone else's tweet and send it out, optionally including your comment in 140 characters. So, here is a look at President Trump's tweets broken into these two types: 
 
 ![Tweets vs retweets][plt2]
 
-This graph reveals a couple of interesting patterns. First, even with the retweets separated out, President Trump has still increased his tweeting frequency with his time in the White House. In other words, his tweeting activity has grown regardless of the type of tweeting. Second, his retweeting rate has increased even more drastically than the rate of his own tweets, bringing the ratio of own tweets to retweets to almost half-and-half by 2020. It is almost like he has realized the value of retweets around the middle of his Presidency, and then turned them into a routine. 
+This graph reveals a couple of interesting patterns. First, even with the retweets separated out, President Trump has increased his tweeting frequency with his time in the White House, or in other words, his tweeting activity has grown regardless of the type of tweeting. Second, his retweeting rate has increased even more drastically than the rate of his own tweets, bringing the ratio of own tweets to retweets to almost half-and-half by 2020. It is almost like he has realized the value of retweets around the middle of his Presidency, and then turned them into a routine. 
 
-## Tweets by Month
+### Tweets by Month
 
 23,842 tweets over the past 4 years and counting certainly feels like a big number, but to better understand what this volume of tweets really means, it is useful to break up the year into months and look at the tweets on a month-by-month basis:
 
 ![Tweets per month][plt4]
 
-We now see that in the first two years of his Presidency, the increase in the number of tweets happened at a relatively calm rate, going from 208 tweets per month in 2017 to about 285 tweets per month in 2018. But changed in a big way from 2019 with his tweeting rate inceasing to 610 tweets per month in that year, and further increasing to almost a thousand tweets per month in 2020. What happened? We know that 2019 was the year of his impeachment trial and 2020 has been dominated by the pandemic, economy, and the elections, but one could argue that Trump's entire term was extraordinarily eventful with things like the Mueller investigation, the trade war with China, and foreign policy shifts, so it is not entirely clear.
+We now see that in the first two years of his Presidency, the increase in the number of tweets happened at a relatively calm rate, going from 208 tweets per month in 2017 to about 285 tweets per month in 2018. But that changed in a big way from 2019, with his tweeting rate more than doubling to 610 tweets per month in that year, and further increasing to almost a thousand tweets per month in 2020. What happened? We know that 2019 was the year of his impeachment trial, and 2020 has been dominated by the pandemic, economy, and the elections. But one could argue that Trump's whole time in office was extraordinarily eventful with things like the Mueller investigation, the trade war with China, and foreign policy shifts, so the answer might not be entirely clear.
 
-It is also interesting to see a seasonal pattern in President Trump's tweets. It appears that his tweeting activity subsides in the colder months of the year and picks up in the summer and fall, although this pattern is more clear in the early years than the later.  
+It is also interesting to see a seasonal pattern in President Trump's tweets. It appears that his tweeting activity subsides in the colder months of the year and picks up in the summer and fall, although this pattern seems to hold better in the early years than later.  
 
-## Tweets and Likes
+## Tweets vs. Likes
 
-What about likes? Here is basically the previous graph but overlayed with likes using a secondary y-axis on the right:
+What about Likes? Here is basically the previous graph but overlayed with Likes using a secondary y-axis on the right:
 
 ![Tweets per month with likes][plt6]
 
-Despite a roller coaster-like tweeting rate, the likes remained relatively steady in the range from 50 to 100 thousand likes per tweet on average. Notice how the red line representing likes stays above the tweets in the first two years, but after that, the likes are below the tweets. More tweeting doesn't appear to have translated to more likes per tweets.
+Despite a roller coaster-like tweeting rate, the Likes remained relatively steady in the range from 50 to 100 thousand Likes per tweet on average. Notice how the red line representing Likes stays above the volume of tweets in the first two years but below them in the later years. What this likely shows is that more tweeting didn't translate to more Likes per tweet. And actually, if there is any relationship between the volume of tweets and their likeability, it appears to be a negative one where more tweeting appears to make the tweets less popular. This is more noticable in 2018 and 2019. 
 
-You can also observe an annual pattern with the likes where they seem to be higher in the beginnings and ends of the year, and lower in the middle. This is not to suggest that the likeability of tweets is driven by natural seasons, but more likely by the content of the tweets, which might be varying with the seasons. If there is any relationship between the volume of tweets and their likeability, it appears to be a negative one - more tweeting appears to make the tweets less popular. This is more noticable in 2018 and 2019. 
+You can also observe an annual pattern with the Likes where they seem to be higher in the beginning and end of the years, and lower in the middle. Of course, this is not to suggest that the likeability of tweets is driven by natural seasons, but more likely by the content of the tweets which in their turn might be driven by seasons.
 
-It would be an omission to move on without mentioning the spike in likes in November of 2020. There are a few reasons that make this month special, but chief among those is, of course, the defeat in the election. It is possible that the spike is a show of support from his followers on Twitter. However, it is hard to put too much weight to November because this is an incomplete month (the dataset includes tweets up to November 22), and because many of Trump's tweets in November were flagged with Twitter's new disinformation label, making them not possible to interact with, leaving even fewer tweets to work with for calculating average likes. 
+It would be an omission to move on without mentioning the spike in Likes in November of 2020. There are a few reasons that make this month special, but chief among those is, of course, the defeat in the elections. It is possible that the spike is a show of support from his followers on Twitter, but it is hard to put too much weight to November because this is an incomplete month (the dataset includes tweets only up to November 23), and because many of Trump's tweets in November were flagged with Twitter's new disinformation label, making them not possible to interact with. And that leave November with even fewer tweets to work with for calculating average likes. 
 
 ## Tweets by Day of Week
 
-Most people structure their days differently based on the day of the week, with the most common example of that being weekdays versus weekends. Do President Trump tweets show any such pattern during the 7-day week?
+Most people structure their days differently based on the day of the week, and the most common example of that is weekdays versus weekends. We do things differently on our days off versus work days, watch TV more or less, exercise more or less, and use social media more or less. Can we see any such patterns with President Trump's tweets during his week?
 
 ![Tweets by day of week][plt7]
 
-It turns out, President Trump tweets remarkably consistently every day of the week. Although we see a small rise and decline as the week progresses, as visible in 2017 and 2018, by and large President Trump does not appear to take any days off from Twitter. In 2020, the pattern even reverses as the middle of the week becomes the least active period of the week, although with over 30 tweets per day it is difficult to call the period least active. 
+It turns out, President Trump tweets remarkably consistently every day of the week. Although there appears to be a small rise and decline as the week unfolds, especially in 2017 and 2018, by and large President Trump does not appear to take any days off from Twitter. In 2020, the pattern even reverses and the middle of the week becomes the less active period, although with over 30 tweets per day it is less active only by a few tweets. 
 
 ## Tweets by Time of Day
 
-It has become common to hear reports of President Trump sending tweets very late at night or very early in the morning, all in addition to the usual hours of the day. So when I started working on this dataset I was curious to see how President Trump's tweeting frequency would look by time of day, and here is what that looks like:
+It has been common to hear reports of President Trump sending tweets very late at night or very early in the morning, in addition to the usual hours of the day. So when I started working on this dataset I was curious to see how President Trump's tweeting frequency would look by time of day. And here is what that looks like:
 
 ![Tweets by time of day][plt9]
 
-This graph contains a lot of information, but I thought the most striking observation might be how little President Trump sleeps, especiallhy in the last two years. Looking at 2020, his bedtime appears to be from about 1:00am to 6:00am, a meager 5 hours. And sleep, or whatever is left of it, seems to be the only thing that stops him from tweeting because in all other times of the day he sends anywhere from 1 to 3 tweets per hour. 
+This graph contains a lot of information, but I thought the most striking observation is how little President Trump sleeps, especiallhy in the last two years. Looking at 2020, his bedtime appears to be from about 1:00am to 6:00am, a meager 5 hours. And sleep, or whatever is left of it, seems to be the only thing that stops him from tweeting, because in all the other times of the day he sends anywhere from 1 to 3 tweets per hour. 
 
-The period of the morning hours from 7:00am to 11:00am appears to be the most active time of the day, with 2 or more tweets per hour, based on the 2020 tweets. And the most active hour within that period is 8:00am to 9:00am, with over 3 tweets per hour. Interestingly, but probably not surprisingly, the next most active period is the late night from about 9:00pm to 1:00am. 
+The period of the morning hours from 7:00am to 11:00am appears to be the most active time of the day, with 2 or more tweets per hour, based on the 2020 tweets. And the most active hour within that period is 8:00am to 9:00am, with over 3 tweets per hour. Interestingly, but probably not surprisingly, the next most active period is late atnight, from about 9:00pm to 1:00am. 
 
-## Most and Least Active Days
+## Most (and Least) Active Days
 
 After seeing the remarkable volume and consistency of tweets, it may be interesting to ask what President Trump's most (and least) active tweeting days were, and how many tweets made them qualify for the top rank. So here are President Trump's top 10 most active tweeting days:
 
@@ -72,15 +72,15 @@ We can also flip the charts and look at the least active days, or days without a
 6) Sunday, May 6, 2018
 7) Saturday, March 23, 2019
 
-## All Tweets Day by Day in One Graph
+## All Tweets Day-by-Day in One Graph
 
-And finally, a look at all of President Trump's tweets, day-by-day, in one graph:
+And finally, here is a look at all of President Trump's tweets, day-by-day, in one graph:
 
 ![All tweets day by day][plt13]
 
 ## Data and Methodology
 
-I obtained the data from Twitter's API and analyzed it using Python and its data analysis libraries NumPy, Pandas, and Matplotlib. All data and scripts used for this article can be found at: https://github.com/adilbekm/trump_tweets
+The data for this publication was obtained from the Twitter API and analyzed using Python and its special data libraries NumPy, Pandas, and Matplotlib. The data and the scripts can be found at: https://github.com/adilbekm/trump_tweets
 
 
 ## Other Graphs 
@@ -104,11 +104,9 @@ https://twitter.com/realDonaldTrump/status/tweet-id-here
 
 ## Trash
 
-
 Yes, there is some increase on work days compared to weekends, but by and large the volume of tweet is
 
 At least in the first two years of his term, there appears to be some structure with a slight reduction in tweets on Sundays and equally limited rise during the week, 
-
 
 their days differently during the week, with the most common weekends are different from weekdays in what we do and how much, and there are days of the week when we exercise Your weekend may not be the typical Saturday and Sunday, but And there are days when for President Trump's tweeting they are nearly the same.
  
@@ -118,13 +116,9 @@ The impeachment trial took place in the second half of 2019, and 2020 was domina
 
  We still see that President Trump has sent an increasing number of tweets while in Office, but now we also see that the increase wasn't linear. There is a relatively calm first half of his term followed by a rapidly increasing second half, which can likely be attributed to his impeachment trial in 2019, and of course, the global pandemic and the elections in 2020. Clearly, President Trump 
 
-
 I next looked at the tweets
 
  exactly does it mean? How many tweets does this translate to on a monthly basis?  sounds like a big number, 
-
-
-
 
 Interpreting growith in retweets:
 
@@ -137,11 +131,7 @@ retweeting:
 - pick and choose
 - engagement
 
-
 What is interesting here is President Trump 
-
-
->>>
 
 How can we interprete this second pattern?
 
@@ -154,10 +144,6 @@ is of course no ordinary user, the users he interacts with are also not ordinary
 
  President, of course, is no ordinary user, and the users that he interacts with are not ordinary people either.  so this is     these are usually organizations or other high-profile individuals.
 
->>>
-
- 
-
 sand more.oending more and more tweets the longer he was at the White House. 
 
 has tweeted increasingly more the longer sent increasingly more tweets the longer he was at the White House. 
@@ -168,8 +154,6 @@ He continued to tweet daily after moving into the White House, and the longer he
  become at least a little like all the other presidents that came before him, and this meant tweeting less. But today with nearly all of his presidency behind him, that expectation turned out to be short-lived. 
 
 sending multiple tweets every day. If there was any expectation that this habit would stop after his election, it turned out to be short-lived. He continued to tweet nearly as usual in the first half of his term, and then 
-
-
 
 and that included dialing down on his twitting habits. After all, there are many established ways for a President to communicate to the world. Twitter just didn't seem like the best tool for the new job.
  
@@ -187,10 +171,6 @@ This is a lot for anyone, so to understand how and To understand what this numbe
 
 President Trump tweets a lot. But how much exactly does he tweet? How many tweets does he send in a given year, month, day, or even an hour? How many likes does he get? In this article I pulled all of President Trump's tweets since 2017 to answer these questions. 
 
-
-
-
-Last updated: November 20, 2020
 
 [plt1]: images/plt_01.png
 [plt2]: images/plt_02.png
