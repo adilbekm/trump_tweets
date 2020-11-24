@@ -8,6 +8,8 @@ Donald Trump had been a prolific tweeter even before he became President, sendin
 
 ![Tweets by year][plt1]
 
+### Tweets vs Retweets
+
 If you don't use Twitter very often, it's worth mentioning that tweets can be of two types - own tweets or retweets. An own tweet is when you type something in 140 characters or less and send it out, and a retweet is when you take someone else's tweet and send it out, optionally including your comment in 140 characters. So, here is a look at President Trump's tweets broken into these two types: 
 
 ![Tweets vs retweets][plt2]
@@ -24,27 +26,27 @@ We now see that in the first two years of his Presidency, the increase in the nu
 
 It is also interesting to see a seasonal pattern in President Trump's tweets. It appears that his tweeting activity subsides in the colder months of the year and picks up in the summer and fall, although this pattern seems to hold better in the early years than later.  
 
-## Tweets vs. Likes
+### Tweets vs. Likes
 
 What about Likes? Here is basically the previous graph but overlayed with Likes using a secondary y-axis on the right:
 
 ![Tweets per month with likes][plt6]
 
-Despite a roller coaster-like tweeting rate, the Likes remained relatively steady in the range from 50 to 100 thousand Likes per tweet on average. Notice how the red line representing Likes stays above the volume of tweets in the first two years but below them in the later years. What this likely shows is that more tweeting didn't translate to more Likes per tweet. And actually, if there is any relationship between the volume of tweets and their likeability, it appears to be a negative one where more tweeting appears to make the tweets less popular. This is more noticable in 2018 and 2019. 
+Despite a roller coaster-like tweeting rate, the Likes remained relatively steady in the range from 50 to 100 thousand Likes per tweet on average. Notice how the red line representing Likes stays above the volume of tweets in the first two years, but drops below them in the later years. What this likely shows is that more tweeting didn't translate to more Likes per tweet. And actually, if there is any relationship between the volume of tweets and their likeability, it appears to be a negative one where more tweeting is making the tweets less popular. This is more noticable in 2018 and 2019. 
 
-You can also observe an annual pattern with the Likes where they seem to be higher in the beginning and end of the years, and lower in the middle. Of course, this is not to suggest that the likeability of tweets is driven by natural seasons, but more likely by the content of the tweets which in their turn might be driven by seasons.
+You can also observe an annual pattern with the Likes where they seem to be higher in the beginning and end of the year, and lower in the middle. Of course, this is not to suggest that the likeability of tweets is driven by natural seasons, but more likely by the content of the tweets which in their own turn might be driven by seasons.
 
-It would be an omission to move on without mentioning the spike in Likes in November of 2020. There are a few reasons that make this month special, but chief among those is, of course, the defeat in the elections. It is possible that the spike is a show of support from his followers on Twitter, but it is hard to put too much weight to November because this is an incomplete month (the dataset includes tweets only up to November 23), and because many of Trump's tweets in November were flagged with Twitter's new disinformation label, making them not possible to interact with. And that leave November with even fewer tweets to work with for calculating average likes. 
+It would be an omission to move on without mentioning the spike in Likes in November of 2020. There are a few reasons that make this month special, but chief among those is, of course, the defeat in the elections. It is possible that the spike is a show of support from his followers on Twitter in light of the news, but it is hard to put too much weight on this November because this is an incomplete month (the dataset includes tweets only up to November 23), and because many of Trump's tweets in November were flagged with Twitter's new disinformation label, making them not possible to interact with. And that leaves the month with even fewer tweets to work with for calculating average likes. 
 
-## Tweets by Day of Week
+### Tweets by Day of Week
 
-Most people structure their days differently based on the day of the week, and the most common example of that is weekdays versus weekends. We do things differently on our days off versus work days, watch TV more or less, exercise more or less, and use social media more or less. Can we see any such patterns with President Trump's tweets during his week?
+Most people structure their days differently based on the day of the week, and the most common example of that is weekdays versus weekends. We do things differently on our days off versus our work days, we watch TV more or less, exercise more or less, and use social media more or less. Can we observe any such patterns with President Trump's tweets during his week?
 
 ![Tweets by day of week][plt7]
 
 It turns out, President Trump tweets remarkably consistently every day of the week. Although there appears to be a small rise and decline as the week unfolds, especially in 2017 and 2018, by and large President Trump does not appear to take any days off from Twitter. In 2020, the pattern even reverses and the middle of the week becomes the less active period, although with over 30 tweets per day it is less active only by a few tweets. 
 
-## Tweets by Time of Day
+### Tweets by Time of Day
 
 It has been common to hear reports of President Trump sending tweets very late at night or very early in the morning, in addition to the usual hours of the day. So when I started working on this dataset I was curious to see how President Trump's tweeting frequency would look by time of day. And here is what that looks like:
 
@@ -54,7 +56,7 @@ This graph contains a lot of information, but I thought the most striking observ
 
 The period of the morning hours from 7:00am to 11:00am appears to be the most active time of the day, with 2 or more tweets per hour, based on the 2020 tweets. And the most active hour within that period is 8:00am to 9:00am, with over 3 tweets per hour. Interestingly, but probably not surprisingly, the next most active period is late atnight, from about 9:00pm to 1:00am. 
 
-## Most (and Least) Active Days
+### Most (and Least) Active Days
 
 After seeing the remarkable volume and consistency of tweets, it may be interesting to ask what President Trump's most (and least) active tweeting days were, and how many tweets made them qualify for the top rank. So here are President Trump's top 10 most active tweeting days:
 
@@ -72,18 +74,18 @@ We can also flip the charts and look at the least active days, or days without a
 6) Sunday, May 6, 2018
 7) Saturday, March 23, 2019
 
-## All Tweets Day-by-Day in One Graph
+### All Tweets Day-by-Day in One Graph
 
 And finally, here is a look at all of President Trump's tweets, day-by-day, in one graph:
 
 ![All tweets day by day][plt13]
 
-## Data and Methodology
+### Data and Methodology
 
 The data for this publication was obtained from the Twitter API and analyzed using Python and its special data libraries NumPy, Pandas, and Matplotlib. The data and the scripts can be found at: https://github.com/adilbekm/trump_tweets
 
 
-## Other Graphs 
+### Other Graphs 
 
 ![Tweets per day][plt3]
 
