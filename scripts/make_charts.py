@@ -97,7 +97,7 @@ for y in yrs:
     cnt = len(df[df['created_yy'] == int(y)])
     ts.append(cnt)
 
-bars = ax.bar(yrs, ts, color=tcolor)
+bars = ax.bar(yrs, ts, width=0.6, color=tcolor)
 
 # annotate top of each bar with count of tweets for the year that the bar represents
 for i, bar in enumerate(bars):
@@ -114,19 +114,23 @@ for i, bar in enumerate(bars):
         color=tcolor)
 
 # format y-labels with a thousands separator and no decimals
-yticks = ax.get_yticks()
-ax.set_yticks(yticks) # needed for 
-yticks = ['{:,.0f}'.format(t) for t in yticks.tolist()]
-ax.set_yticklabels(yticks)
+#yticks = ax.get_yticks()
+#ax.set_yticks(yticks) # needed for FixedLocator
+#yticks = ['{:,.0f}'.format(t) for t in yticks.tolist()]
+#ax.set_yticklabels(yticks)
+
+# turn off y-axis
+ax.get_yaxis().set_visible(False)
 
 # show y-grid line
 #ax.grid(axis='y', which='major', linestyle='--')
 
-# disable spines (lines across axis)
+# disable spines (axis lines)
 ax.spines['top'].set_visible(False)
+ax.spines['left'].set_visible(False)
 ax.spines['right'].set_visible(False)
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -171,7 +175,7 @@ yticks = ['{:,.0f}'.format(t) for t in yticks.tolist()]
 ax.set_yticklabels(yticks)
 
 # show y-grid line
-ax.grid(axis='y', which='major', linestyle='--')
+#ax.grid(axis='y', which='major', linestyle='--')
 
 # disable spines (lines across axis)
 ax.spines['top'].set_visible(False)
@@ -179,7 +183,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend(frameon=False)
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -192,7 +196,8 @@ print('saved plot {}'.format(f_name))
 
 f_name = 'plt_03.png'
 
-fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)})
+#fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)})
+fig = plt.figure(figsize=(13, 5), tight_layout=True)
 ax = plt.subplot()
 
 title = main_title
@@ -264,7 +269,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend(frameon=False, loc=2, bbox_to_anchor=(0, 1.02))
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -277,7 +282,8 @@ print('saved plot {}'.format(f_name))
 
 f_name = 'plt_04.png'
 
-fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)}) # creates current figure
+#fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)}) # creates current figure
+fig = plt.figure(figsize=(13, 5), tight_layout=True) # creates current figure
 ax = plt.subplot() # creates current axes
 
 title = main_title
@@ -351,7 +357,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend(frameon=False)
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -364,7 +370,8 @@ print('saved plot {}'.format(f_name))
 
 f_name = 'plt_05.png'
 
-fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)}) # creates current figure
+#fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)}) # creates current figure
+fig = plt.figure(figsize=(13, 5), tight_layout=True) # creates current figure
 ax = plt.subplot() # creates current axes
 
 title = main_title
@@ -444,7 +451,7 @@ ax.spines['right'].set_visible(False)
 
 ax.legend()
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -457,7 +464,8 @@ print('saved plot {}'.format(f_name))
 
 f_name = 'plt_06.png'
 
-fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)})
+#fig = plt.figure(figsize=(13, 5), tight_layout={'rect': (0, 0.02, 1, 1)})
+fig = plt.figure(figsize=(13, 5), tight_layout=True)
 ax = plt.subplot() # first axes for tweets
 ax2 = ax.twinx() # second axes for like (sharing the same y-axis)
 
@@ -533,7 +541,7 @@ ax2.spines['top'].set_visible(False)
 ax.legend(frameon=False, bbox_to_anchor=(0, 0.95), loc=2)
 ax2.legend(frameon=False)
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -554,7 +562,7 @@ ax2019 = plt.subplot(2, 2, 3)
 ax2020 = plt.subplot(2, 2, 4)
 axs = [ax2017, ax2018, ax2019, ax2020]
 
-title = main_title + ': Tweets Per Weekday'
+title = main_title
 fig.suptitle(title)
 
 # in python, weekdays are 0 for Mon and 6 for Sun
@@ -593,7 +601,7 @@ for i, ax in enumerate(axs):
     ax.spines['right'].set_visible(False)
     ax.grid(axis='y', which='major', linestyle='--')
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -662,7 +670,7 @@ for i, ax in enumerate(axs):
 
 ax2017.legend(frameon=False, loc=2, bbox_to_anchor=(0, 1.02))
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # closes current figure (not required but keeps the memory clean)
@@ -698,7 +706,7 @@ for i, y in enumerate(yrs):
 for i, ax in enumerate(axs):
     ax.bar(hs, height=ts[i], color=tcolor)
     line = ax.axvline(x=12, ymin=0, ymax=0.7, linestyle='--', color=(1.0, 0.65, 0, 0.9))
-    ax.text(12, 2.25, 'Noon', color=(1.0, 0.65, 0, 1.0), fontweight='bold', ha='center')
+    ax.text(12, 2.5, 'Noon', color=(1.0, 0.65, 0, 1.0), fontweight='bold', ha='center')
 
 # get largest ymax among all plots
 ymaxs = []
@@ -718,7 +726,7 @@ for i, ax in enumerate(axs):
     ax.spines['right'].set_visible(False)
     ax.grid(axis='y', which='major', linestyle='--')
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close()
@@ -762,7 +770,7 @@ for i, ax in enumerate(axs):
     ax.bar(hs, height=rs[i], label='Retweets')
     ax.bar(hs, height=ts[i], bottom=rs[i], color=tcolor, label='Own tweets')
     line = ax.axvline(x=12, ymin=0, ymax=0.7, linestyle='--', color=(1.0, 0.65, 0, 0.9))
-    ax.text(12, 2.25, 'Noon', color=(1.0, 0.65, 0, 1.0), fontweight='bold', ha='center')
+    ax.text(12, 2.5, 'Noon', color=(1.0, 0.65, 0, 1.0), fontweight='bold', ha='center')
 
 # get largest ymax among all plots
 ymaxs = []
@@ -785,7 +793,7 @@ for i, ax in enumerate(axs):
 #ax2017.legend(frameon=False, loc=2, bbox_to_anchor=(0, 0.95))
 ax2017.legend(loc=2)
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close()
@@ -882,7 +890,7 @@ ax2.spines['right'].set_visible(False)
 
 fig.legend()
 
-fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
+#fig.text(0.99, 0.01, fineprint, ha='right', fontsize='small', fontstyle='italic', alpha=0.5)
 
 fig.savefig(f_name)
 plt.close() # close current figure - not required but keeps the memory clean
@@ -932,7 +940,7 @@ ax3 = plt.subplot(4, 1, 3)
 ax4 = plt.subplot(4, 1, 4)
 axs = [ax1, ax2, ax3, ax4]
 
-title = main_title + ': Daily Count'
+title = main_title
 fig.suptitle(title, fontsize='x-large')
 
 # number of weeks in 2017-2020: 52 + 52 + 52 + 53 = 209
