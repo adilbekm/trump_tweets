@@ -2,7 +2,7 @@
 
 ![Banner with tweets][plt14]
 
-President Trump sent 23,858 tweets since taking office in 2017. I downloaded all them from Twitter to look for patterns, and here is what I found in a few graphs. 
+**President Trump has sent 23,858 tweets since taking office in 2017. I downloaded all of them from Twitter to look for patterns, and here is what I found in a few graphs.** 
 
 Donald Trump had been a prolific tweeter even before he became President, sending thousands of tweets per year. When he was elected in 2016, there was an expectation that he might mold into the job and change some of his habits, including his tweeting habit. But that expectation turned out to be short-lived because not only President Trump continued to tweet on a daily basis, he has increased the number of tweets he sent from one year to the next.
 
